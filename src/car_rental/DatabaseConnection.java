@@ -12,7 +12,7 @@ import java.sql.*;
  */
 public class DatabaseConnection {
 
-    private static final String URL = "jdbc:mysql://localhost:3306/car_rental_dp";
+    private static final String URL = "jdbc:mysql://localhost:3306/car_rental";
     private static final String USER = "root"; // Your MySQL username
     private static final String PASSWORD = ""; // Your MySQL password
 
