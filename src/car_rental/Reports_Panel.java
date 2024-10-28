@@ -37,176 +37,13 @@ public class Reports_Panel extends javax.swing.JFrame {
     public Reports_Panel() {
         initComponents();
         setLocationRelativeTo(null);
-        carStatus_Report();
-        carList_Report();
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // Closes only this frame
-//        System.out.println("test.");
-//
-//        String filePath = System.getProperty("user.dir") + "/Report.pdf";  // Specify your path
-//
-//        if (generatePDFReport(filePath)) {
-//            System.out.println("PDF report created successfully at: " + filePath);
-//            openPDF(filePath);
-//        } else {
-//            System.out.println("Failed to create PDF report.");
-//        }
+
     }
 
-    public static void carStatus_Report() {
+    
 
-        Document document = new Document();
-
-        try {
-            // Create a PDF writer to write to file
-            PdfWriter.getInstance(document, new FileOutputStream("Car_Status_Report.pdf"));
-            document.open();
-
-            // Font settings
-            Font titleFont = new Font(Font.FontFamily.HELVETICA, 18, Font.BOLD);
-            Font headerFont = new Font(Font.FontFamily.HELVETICA, 12, Font.BOLD);
-            Font bodyFont = new Font(Font.FontFamily.HELVETICA, 10, Font.NORMAL);
-
-            // Add a title to the PDF
-            Paragraph title = new Paragraph("Car Status Report", titleFont);
-            title.setAlignment(Element.ALIGN_CENTER);
-            document.add(title);
-
-            // Space before the table
-            document.add(new Paragraph(" "));
-
-            // Create a table with columns matching your ResultSet
-            PdfPTable table = new PdfPTable(3);  // Adjust column count based on your table
-            table.setWidthPercentage(100);
-
-            // Adding table headers
-            table.addCell(new PdfPCell(new Phrase("Vehicle_ID", headerFont)));
-            table.addCell(new PdfPCell(new Phrase("Vehicle Name", headerFont)));
-            table.addCell(new PdfPCell(new Phrase("Status", headerFont)));
-
-            // Add table rows with data from ResultSet
-            table.addCell(new PdfPCell(new Phrase(String.valueOf("1"), bodyFont)));
-            table.addCell(new PdfPCell(new Phrase(String.valueOf("Toyota Vios 2023"), bodyFont)));
-            table.addCell(new PdfPCell(new Phrase(String.valueOf("Available"), bodyFont)));
-
-            table.addCell(new PdfPCell(new Phrase(String.valueOf("2"), bodyFont)));
-            table.addCell(new PdfPCell(new Phrase(String.valueOf("Mistusbishi Xpander 2021"), bodyFont)));
-            table.addCell(new PdfPCell(new Phrase(String.valueOf("Available"), bodyFont)));
-
-            table.addCell(new PdfPCell(new Phrase(String.valueOf("3"), bodyFont)));
-            table.addCell(new PdfPCell(new Phrase(String.valueOf("Toyota Innova 2021"), bodyFont)));
-            table.addCell(new PdfPCell(new Phrase(String.valueOf("Available"), bodyFont)));
-
-            table.addCell(new PdfPCell(new Phrase(String.valueOf("6"), bodyFont)));
-            table.addCell(new PdfPCell(new Phrase(String.valueOf("Toyota Wigo 2022"), bodyFont)));
-            table.addCell(new PdfPCell(new Phrase(String.valueOf("Unavailable - Rented"), bodyFont)));
-
-            table.addCell(new PdfPCell(new Phrase(String.valueOf("7"), bodyFont)));
-            table.addCell(new PdfPCell(new Phrase(String.valueOf("Honda Accord 2020"), bodyFont)));
-            table.addCell(new PdfPCell(new Phrase(String.valueOf("Unavailable - Rented"), bodyFont)));
-
-            table.addCell(new PdfPCell(new Phrase(String.valueOf("8"), bodyFont)));
-            table.addCell(new PdfPCell(new Phrase(String.valueOf("Mazda CX-5 2021"), bodyFont)));
-            table.addCell(new PdfPCell(new Phrase(String.valueOf("Available"), bodyFont)));
-
-            table.addCell(new PdfPCell(new Phrase(String.valueOf("11"), bodyFont)));
-            table.addCell(new PdfPCell(new Phrase(String.valueOf("Hondda Civic 2021"), bodyFont)));
-            table.addCell(new PdfPCell(new Phrase(String.valueOf("Available"), bodyFont)));
-
-            // Add the table to the document
-            document.add(table);
-
-            System.out.println("PDF report created successfully.");
-            String filePath = System.getProperty("user.dir") + "/Car_Status_Report.pdf";
-            openPDF(filePath);
-        } catch (DocumentException | IOException e) {
-            e.printStackTrace();
-        } finally {
-            // Close the document
-            document.close();
-        }
-    }
-
-    public static void carList_Report() {
-
-        Document document = new Document();
-
-        try {
-            // Create a PDF writer to write to file
-            PdfWriter.getInstance(document, new FileOutputStream("Car_List_Report.pdf"));
-            document.open();
-
-            // Font settings
-            Font titleFont = new Font(Font.FontFamily.HELVETICA, 18, Font.BOLD);
-            Font headerFont = new Font(Font.FontFamily.HELVETICA, 12, Font.BOLD);
-            Font bodyFont = new Font(Font.FontFamily.HELVETICA, 10, Font.NORMAL);
-
-            // Add a title to the PDF
-            Paragraph title = new Paragraph("Car List Report", titleFont);
-            title.setAlignment(Element.ALIGN_CENTER);
-            document.add(title);
-
-            // Space before the table
-            document.add(new Paragraph(" "));
-
-            // Create a table with columns matching your ResultSet
-            PdfPTable table = new PdfPTable(4);  // Adjust column count based on your table
-            table.setWidthPercentage(100);
-
-            // Adding table headers
-            table.addCell(new PdfPCell(new Phrase("Vehicle_ID", headerFont)));
-            table.addCell(new PdfPCell(new Phrase("Make", headerFont)));
-            table.addCell(new PdfPCell(new Phrase("Model", headerFont)));
-            table.addCell(new PdfPCell(new Phrase("Rate", headerFont)));
-
-            // Add table rows with data from ResultSet
-            table.addCell(new PdfPCell(new Phrase(String.valueOf("1"), bodyFont)));
-            table.addCell(new PdfPCell(new Phrase(String.valueOf("Toyota"), bodyFont)));
-            table.addCell(new PdfPCell(new Phrase(String.valueOf("Vios 2023"), bodyFont)));
-            table.addCell(new PdfPCell(new Phrase(String.valueOf("1500"), bodyFont)));
-
-            table.addCell(new PdfPCell(new Phrase(String.valueOf("2"), bodyFont)));
-            table.addCell(new PdfPCell(new Phrase(String.valueOf("Mistusbishi"), bodyFont)));
-            table.addCell(new PdfPCell(new Phrase(String.valueOf("Xpander 2021"), bodyFont)));
-            table.addCell(new PdfPCell(new Phrase(String.valueOf("2000"), bodyFont)));
-
-            table.addCell(new PdfPCell(new Phrase(String.valueOf("3"), bodyFont)));
-            table.addCell(new PdfPCell(new Phrase(String.valueOf("Toyota"), bodyFont)));
-            table.addCell(new PdfPCell(new Phrase(String.valueOf("Innova 2021"), bodyFont)));
-            table.addCell(new PdfPCell(new Phrase(String.valueOf("2400"), bodyFont)));
-
-            table.addCell(new PdfPCell(new Phrase(String.valueOf("6"), bodyFont)));
-            table.addCell(new PdfPCell(new Phrase(String.valueOf("Toyota"), bodyFont)));
-            table.addCell(new PdfPCell(new Phrase(String.valueOf("Wigo 2022"), bodyFont)));
-            table.addCell(new PdfPCell(new Phrase(String.valueOf("1500"), bodyFont)));
-
-            table.addCell(new PdfPCell(new Phrase(String.valueOf("7"), bodyFont)));
-            table.addCell(new PdfPCell(new Phrase(String.valueOf("Honda"), bodyFont)));
-            table.addCell(new PdfPCell(new Phrase(String.valueOf("Accord 2020"), bodyFont)));
-            table.addCell(new PdfPCell(new Phrase(String.valueOf("2000"), bodyFont)));
-
-            table.addCell(new PdfPCell(new Phrase(String.valueOf("8"), bodyFont)));
-            table.addCell(new PdfPCell(new Phrase(String.valueOf("Mazda"), bodyFont)));
-            table.addCell(new PdfPCell(new Phrase(String.valueOf("CX-5 2021"), bodyFont)));
-            table.addCell(new PdfPCell(new Phrase(String.valueOf("2700"), bodyFont)));
-
-            table.addCell(new PdfPCell(new Phrase(String.valueOf("11"), bodyFont)));
-            table.addCell(new PdfPCell(new Phrase(String.valueOf("Honda"), bodyFont)));
-            table.addCell(new PdfPCell(new Phrase(String.valueOf("Civic 2021"), bodyFont)));
-            table.addCell(new PdfPCell(new Phrase(String.valueOf("1800"), bodyFont)));
-
-            // Add the table to the document
-            document.add(table);
-
-            System.out.println("PDF report created successfully.");
-            String filePath = System.getProperty("user.dir") + "/Car_List_Report.pdf";
-            openPDF(filePath);
-        } catch (DocumentException | IOException e) {
-            e.printStackTrace();
-        } finally {
-            // Close the document
-            document.close();
-        }
-    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -218,46 +55,72 @@ public class Reports_Panel extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTable3 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setText("Reports Generated for:");
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel2.setText("Car_List_Report.pdf");
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {"1", "Toyota ", "Vios 2023 ", "1500"},
+                {"2", "Mistusbishi ", "Xpander 2021", "2000"},
+                {"3", "Toyota ", "Innova 2021 ", "2400"},
+                {"6", "Toyota ", "Wigo 2022 ", "1500"},
+                {"7", "Honda", "Accord 2020 ", "2000"},
+                {"8", "Mazda ", "CX-5 2021 ", "2700"},
+                {"11", "Honda ", "Civic 2021", "1800"}
+            },
+            new String [] {
+                "Vehicle_ID", "Vehicle Make", "Vehicle Model", "Rate"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel3.setText("Car_Status_Report.pdf");
+        jTabbedPane1.addTab("Car_List_Report", jScrollPane1);
+
+        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {"1", "Toyota Vios 2023 ", "Available"},
+                {"2", "Mistusbishi Xpander 2021", "Available"},
+                {"3", "Toyota Innova 2021 ", "Available"},
+                {"6", "Toyota Wigo 2022 ", "Unavailable - Rented"},
+                {"7", "Honda Accord 2020 ", "Unavailable - Rented"},
+                {"8", "Mazda CX-5 2021 ", "Available"},
+                {"11", "Honda Civic 2021", "Available"}
+            },
+            new String [] {
+                "Vehicle_ID", "Vehicle Name", "Status"
+            }
+        ));
+        jScrollPane3.setViewportView(jTable3);
+
+        jTabbedPane1.addTab("Car_Status_Report", jScrollPane3);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(187, 187, 187)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(238, 238, 238)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3))))
-                .addContainerGap(210, Short.MAX_VALUE))
+                    .addComponent(jLabel1)
+                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 933, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(141, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(63, 63, 63)
+                .addGap(28, 28, 28)
                 .addComponent(jLabel1)
-                .addGap(38, 38, 38)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
-                .addContainerGap(222, Short.MAX_VALUE))
+                .addGap(36, 36, 36)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 545, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(352, Short.MAX_VALUE))
         );
 
         pack();
@@ -292,46 +155,14 @@ public class Reports_Panel extends javax.swing.JFrame {
 
     }
 
-    //sample
-    public static boolean generatePDFReport(String filePath) {
-        System.out.println("init.");
-        Document document = new Document();
-        try {
-            PdfWriter.getInstance(document, new FileOutputStream(filePath));
-            document.open();
-
-            // Add content to your PDF
-            document.add(new com.itextpdf.text.Paragraph("Hello, this is a sample PDF!"));
-
-            document.close();
-
-            // Check if the file was created
-            File pdfFile = new File(filePath);
-            return pdfFile.exists();
-
-        } catch (DocumentException | IOException e) {
-            e.printStackTrace();
-            return false;
-        }
-    }
-
-    public static void openPDF(String filePath) {
-        try {
-            File pdfFile = new File(filePath);
-            if (pdfFile.exists()) {
-                Desktop.getDesktop().open(pdfFile); // Opens the PDF in the default viewer
-            } else {
-                System.out.println("The file does not exist.");
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.out.println("Could not open the PDF.");
-        }
-    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable3;
     // End of variables declaration//GEN-END:variables
 }
