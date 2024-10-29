@@ -217,7 +217,8 @@ public class Main extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel3.setText("Available Cars");
 
-        btn_Bookings.setBackground(new java.awt.Color(102, 255, 102));
+        btn_Bookings.setBackground(new java.awt.Color(51, 51, 51));
+        btn_Bookings.setForeground(new java.awt.Color(255, 255, 255));
         btn_Bookings.setText("Bookings");
         btn_Bookings.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -225,9 +226,10 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
-        admin_panel.setBackground(new java.awt.Color(204, 255, 204));
+        admin_panel.setBackground(new java.awt.Color(204, 204, 204));
 
-        btn_users.setBackground(new java.awt.Color(102, 255, 102));
+        btn_users.setBackground(new java.awt.Color(51, 51, 51));
+        btn_users.setForeground(new java.awt.Color(255, 255, 255));
         btn_users.setText("Users");
         btn_users.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -235,7 +237,8 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
-        btn_vehicles.setBackground(new java.awt.Color(102, 255, 102));
+        btn_vehicles.setBackground(new java.awt.Color(51, 51, 51));
+        btn_vehicles.setForeground(new java.awt.Color(255, 255, 255));
         btn_vehicles.setText("Vehicles");
         btn_vehicles.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -288,7 +291,8 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
-        btn_reports.setBackground(new java.awt.Color(102, 255, 102));
+        btn_reports.setBackground(new java.awt.Color(51, 51, 51));
+        btn_reports.setForeground(new java.awt.Color(255, 255, 255));
         btn_reports.setText("Generate Reports");
         btn_reports.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

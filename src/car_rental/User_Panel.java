@@ -296,8 +296,9 @@ public class User_Panel extends javax.swing.JFrame {
             }
         });
 
-        btn_back.setBackground(new java.awt.Color(153, 255, 153));
+        btn_back.setBackground(new java.awt.Color(51, 51, 51));
         btn_back.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btn_back.setForeground(new java.awt.Color(255, 255, 255));
         btn_back.setText("Back");
         btn_back.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
